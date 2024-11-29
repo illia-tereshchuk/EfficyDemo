@@ -15,6 +15,17 @@ namespace EfficyDemo.Api.Controllers
         {
             _context = context;
         }
+        // *. Get team without employees
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Team>> GetTeam(int id)
+        {
+            var team = await _context.Teams.FindAsync(id);
+            if (team == null)
+            {
+                return NotFound();
+            }
+            return Ok(team);
+        }
         //3. Steps by team
         [HttpGet("steps/{id}")]
         public async Task<ActionResult<int>> GetTotalSteps(int id)
@@ -74,6 +85,32 @@ namespace EfficyDemo.Api.Controllers
             };
 
             return Ok(result);
+        }
+        // 6. Add new team
+        [HttpPost("add")]
+        public async Task<ActionResult<Team>> AddTeam(String name)
+        {
+            var team = new Team
+            {
+                Name = name
+            };
+            _context.Teams.Add(team);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetTeam), new { id = team.Id }, team);
+        }
+
+        // 6. Delete existing team by Id
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteTeam(int id)
+        {
+            var team = await _context.Teams.FindAsync(id);
+            if (team == null)
+            {
+                return NotFound();
+            }
+            _context.Teams.Remove(team);
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
     }
 }
