@@ -1,0 +1,6 @@
+@EfficyDemo.Api_HostAddress = http://localhost:5082
+
+GET {{EfficyDemo.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
