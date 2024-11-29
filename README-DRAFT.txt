@@ -1,28 +1,25 @@
 I am Illia Tereshchuk, and this is my demo for Efficy.
-
-1. Create database tables with following structure:
+As I like "data first" approach, let's define the model.
 
 COUNTERS
-- Id (int)
-- Value (int)
-- EmployeeId (int)
+[Id]			int
+[Value]			string
+[EmployeeId]	int
 
 EMPLOYEES
-- Id (int)
-- Name (nvarchar(50))
-- TeamId (int)
+[Id]			int
+[Name]			string
+[TeamId]		int
 
 TEAMS
-- Id (int)
-- Name (nvarchar(50))
+[Id]			int
+[Name]			string
 
-Use "SQL Database Server" project to create database tables.
-Deploy this database locally and fill with random test data.
+In Visual Studio, I use "SQL Database Server" project template.
+I design the tables and post-deployment scripts to fill them.
+Then I publish database locally and check it in SQL Explorer.
 
-2. Create data access layer for the database tables. Use Entity Framework.
-
-
-
+Next, I design Data Access Layer, which utilizes Entity Framework.
 
 All the technical task revolves around REST API.
 For this, I will shorten user stories dead simple.

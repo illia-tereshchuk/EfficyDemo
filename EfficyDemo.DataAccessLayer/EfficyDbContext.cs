@@ -55,12 +55,10 @@ namespace EfficyDemo.Dal
                     .OnDelete(DeleteBehavior.Cascade);
             });
         }
-
         public EfficyDbContext(DbContextOptions<EfficyDbContext> options)
             : base(options)
         {
         }
-
         public EfficyDbContext(): base()
         {
 
