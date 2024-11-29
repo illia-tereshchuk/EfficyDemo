@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EfficyDemo.Database", "EfficyDemo.Database\EfficyDemo.Database.sqlproj", "{35C4E291-2E13-4378-B75B-EDC1A9920084}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EfficyDemo.Db", "EfficyDemo.Database\EfficyDemo.Db.sqlproj", "{35C4E291-2E13-4378-B75B-EDC1A9920084}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfficyDemo.Dal", "EfficyDemo.DataAccessLayer\EfficyDemo.Dal.csproj", "{D3A24E18-D116-4D25-A779-85B8210482DC}"
 EndProject
