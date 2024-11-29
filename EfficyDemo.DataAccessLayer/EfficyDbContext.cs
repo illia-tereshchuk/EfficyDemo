@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EfficyDemo.Dal.Models;
+﻿using EfficyDemo.Dal.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EfficyDemo.Dal
@@ -21,15 +16,44 @@ namespace EfficyDemo.Dal
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>()
-                .HasOne(e => e.Team)
-                .WithMany(t => t.Employees)
-                .HasForeignKey(e => e.TeamId);
+            modelBuilder.Entity<Employee>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd(); // This indicates that the Id is an identity column
 
-            modelBuilder.Entity<Counter>()
-                .HasOne(c => c.Employee)
-                .WithMany(e => e.Counters)
-                .HasForeignKey(c => c.EmployeeId);
+                entity.Property(e => e.Name).IsRequired();
+                entity.Property(e => e.TeamId).IsRequired();
+
+                entity.HasOne(e => e.Team)
+                    .WithMany(t => t.Employees)
+                    .HasForeignKey(e => e.TeamId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            modelBuilder.Entity<Team>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd(); // This indicates that the Id is an identity column
+
+                entity.Property(e => e.Name).IsRequired();
+            });
+
+            modelBuilder.Entity<Counter>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd(); // This indicates that the Id is an identity column
+
+                entity.Property(e => e.Value).IsRequired();
+                entity.Property(e => e.EmployeeId).IsRequired();
+
+                entity.HasOne(e => e.Employee)
+                    .WithMany(e => e.Counters)
+                    .HasForeignKey(e => e.EmployeeId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
         }
 
         public EfficyDbContext(DbContextOptions<EfficyDbContext> options)
