@@ -1,6 +1,6 @@
 ﻿namespace EfficyDemo.Api.DTOs
 {
-    public class TeamStepCountDto
+    public class TeamStepsDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

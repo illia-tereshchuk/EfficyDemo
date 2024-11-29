@@ -34,13 +34,13 @@ namespace EfficyDemo.Api.Controllers
         }
         // Requirement #4 - list all teams and show their step counts
         [HttpGet("/teams-with-steps")]
-        public async Task<ActionResult<IEnumerable<TeamStepCountDto>>> GetTeamsWithStepCounts()
+        public async Task<ActionResult<IEnumerable<TeamStepsDto>>> GetTeamsWithStepCounts()
         {
             var teams = await _context.Teams
                 .Include(t => t.Employees)
                 .ThenInclude(e => e.Counters)
                 .ToListAsync();
-            var teamStepCounts = teams.Select(t => new TeamStepCountDto
+            var teamStepCounts = teams.Select(t => new TeamStepsDto
             {
                 Id = t.Id,
                 Name = t.Name,

@@ -1,6 +1,6 @@
 ﻿namespace EfficyDemo.Api.DTOs
 {
-    public class IncrementCounterDto
+    public class CounterIncreaseDto
     {
         public int Value { get; set; }
     }

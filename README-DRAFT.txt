@@ -17,7 +17,7 @@ TEAMS
 - Name (nvarchar(50))
 
 Use "SQL Database Server" project to create database tables.
-Deploy this database locally and fill with generated data.
+Deploy this database locally and fill with random test data.
 
 2. Create data access layer for the database tables. Use Entity Framework.
 
@@ -59,5 +59,5 @@ DTOs:
 4. TeamAllDto
 5. TeamEmployeesDto
 6. TeamAddDto, TeamDeleteDto
-7. CounterDeleteDto
+7. [Just ID]
 
