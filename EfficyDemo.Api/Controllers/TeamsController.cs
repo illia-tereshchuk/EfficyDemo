@@ -1,6 +1,6 @@
 ﻿using EfficyDemo.Api.DTOs;
-using EfficyDemo.DAL;
-using EfficyDemo.DAL.Models;
+using EfficyDemo.Dal;
+using EfficyDemo.Dal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

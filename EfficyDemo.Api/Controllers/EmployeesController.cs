@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using EfficyDemo.DAL;
-using EfficyDemo.DAL.Models;
+using EfficyDemo.Dal;
+using EfficyDemo.Dal.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EfficyDemo.Api.Controllers

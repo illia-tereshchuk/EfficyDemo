@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EfficyDemo.DataAccessLayer\EfficyDemo.DAL.csproj" />
+    <ProjectReference Include="..\EfficyDemo.DataAccessLayer\EfficyDemo.Dal.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EfficyDemo.DAL.Models
+namespace EfficyDemo.Dal.Models
 {
     public class Team
     {

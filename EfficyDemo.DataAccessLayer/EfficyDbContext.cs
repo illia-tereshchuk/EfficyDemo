@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EfficyDemo.DAL.Models;
+using EfficyDemo.Dal.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EfficyDemo.DAL
+namespace EfficyDemo.Dal
 {
     public class EfficyDbContext : DbContext
     {

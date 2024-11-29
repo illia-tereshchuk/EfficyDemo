@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using EfficyDemo.DAL;
+using EfficyDemo.Dal;
 using Microsoft.EntityFrameworkCore;
 
 class Program
