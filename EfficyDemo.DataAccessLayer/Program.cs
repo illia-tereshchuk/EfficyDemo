@@ -7,6 +7,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        // Test commit on new OS
         using (var context = new EfficyDbContext())
         {
             var employees = context.Employees
