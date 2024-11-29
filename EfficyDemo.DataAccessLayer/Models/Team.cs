@@ -6,7 +6,7 @@ namespace EfficyDemo.DAL.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        //[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public ICollection<Employee> Employees { get; set; }
     }
 }
