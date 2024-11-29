@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using EfficyDemo.DataAccessLayer;
+using EfficyDemo.DAL;
 using Microsoft.EntityFrameworkCore;
 
 class Program

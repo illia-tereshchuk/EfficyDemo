@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using EfficyDemo.DataAccessLayer;
+using EfficyDemo.DAL;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

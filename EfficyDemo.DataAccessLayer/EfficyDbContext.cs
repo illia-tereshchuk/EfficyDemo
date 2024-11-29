@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EfficyDemo.DataAccessLayer.Models;
+using EfficyDemo.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EfficyDemo.DataAccessLayer
+namespace EfficyDemo.DAL
 {
     public class EfficyDbContext : DbContext
     {
