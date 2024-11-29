@@ -1,4 +1,5 @@
-﻿INSERT INTO [dbo].[Employees] (Id, Name, TeamId)
+﻿SET IDENTITY_INSERT [dbo].[Employees] ON;
+INSERT INTO [dbo].[Employees] (Id, Name, TeamId)
 VALUES
     -- Team 1
     (1, 'Alice Johnson', 1),
@@ -119,3 +120,4 @@ VALUES
     (98, 'Tiffany Hughes', 10),
     (99, 'Ulysses Carter', 10),
     (100, 'Vanessa White', 10);
+SET IDENTITY_INSERT [dbo].[Employees] OFF;

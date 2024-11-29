@@ -1,4 +1,5 @@
-﻿INSERT INTO [dbo].[Counters] (Id, Value, EmployeeId)
+﻿SET IDENTITY_INSERT [dbo].[Counters] ON;
+INSERT INTO [dbo].[Counters] (Id, Value, EmployeeId)
 VALUES
     (1, 4723, 1),
     (2, 9384, 2),
@@ -100,3 +101,4 @@ VALUES
     (98, 7123, 98),
     (99, 9054, 99),
     (100, 4002, 100);
+SET IDENTITY_INSERT [dbo].[Counters] OFF;

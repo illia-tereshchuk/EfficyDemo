@@ -9,7 +9,7 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-
+SET IDENTITY_INSERT [dbo].[Teams] ON;
 INSERT INTO [dbo].[Teams] (Id, Name)
 VALUES 
     (1, 'Marketing'),
@@ -22,3 +22,4 @@ VALUES
     (8, 'Operations'),
     (9, 'Legal'),
     (10, 'Product Management');
+SET IDENTITY_INSERT [dbo].[Teams] OFF;
