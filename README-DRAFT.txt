@@ -34,30 +34,30 @@ This will allow to keep consistency in naming.
 /Counters/add
 
 2. Increase counter - DONE
-/Counters/increase
+/Counters/increase/{id}
 
 3. Get steps by team - DONE
-/Teams/steps
+/Teams/steps/{id}
 
 4. List all teams with steps summarized - DONE
 /Teams/all
 
 5. For single team, list all employees with steps - OK
-/Teams/employees
+/Teams/{id}/employees
 
 6. Add and delete teams
 /Teams/add
-/Teams/delete
+/Teams/delete/{id}
 
-7. Delete counters - OK
-/Counters/delete
+7. Delete counters - DONE
+/Counters/delete/{id}
 
 DTOs:
 1. CounterAddDto - DONE
 2. CounterIncreaseDto - DONE
 3. [Int (Quantity)] - DONE
 4. TeamsAllDto - DONE
-5. TeamEmployeesDto
+5. TeamEmployeesDto (+ EmployeeStepsDto)
 6. TeamAddDto, [Int (Id)]
 7. [Int (Id)]
 

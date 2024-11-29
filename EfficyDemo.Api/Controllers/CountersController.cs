@@ -11,7 +11,6 @@ namespace EfficyDemo.Api.Controllers
     public class CountersController : ControllerBase
     {
         private readonly EfficyDbContext _context;
-        private readonly ILogger<CountersController> _logger;
         public CountersController(EfficyDbContext context)
         {
             _context = context;
@@ -40,7 +39,6 @@ namespace EfficyDemo.Api.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetCounter), new { id = counter.Id }, counter);
         }
-
         // 2. Increase counter
         [HttpPatch("increase/{id}")]
         public async Task<IActionResult> IncrementCounter(int id, CounterIncreaseDto increaseCounterDto)
@@ -61,7 +59,6 @@ namespace EfficyDemo.Api.Controllers
             }
             return NoContent();
         }
-
         // 7. Delete counter
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteCounter(int id)

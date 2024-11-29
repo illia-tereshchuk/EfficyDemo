@@ -48,32 +48,29 @@ namespace EfficyDemo.Api.Controllers
             }).ToList();
             return Ok(teamStepCounts);
         }
-        // Requirement #5 - list all employees and their step count for a certain team
-        [HttpGet("{id}/employees-with-steps")]
-        public async Task<ActionResult<TeamEmployeesDto>> GetTeamWithEmployeeStepCounts(int id)
+        // 5. For single team, list all employees with steps
+        [HttpGet("{id}/employees")]
+        public async Task<ActionResult<TeamEmployeesDto>> GetTeamWithEmployees(int id)
         {
             var team = await _context.Teams
                 .Include(t => t.Employees)
                 .ThenInclude(e => e.Counters)
                 .FirstOrDefaultAsync(t => t.Id == id);
-
             if (team == null)
             {
                 return NotFound();
             }
-
-            var employeeStepCounts = team.Employees.Select(e => new EmployeeStepCountDto
+            var employeeStepCounts = team.Employees.Select(e => new EmployeeStepsDto
             {
                 Id = e.Id,
                 Name = e.Name,
                 TotalSteps = e.Counters.Sum(c => c.Value)
             }).ToList();
-
             var result = new TeamEmployeesDto
             {
                 Id = team.Id,
                 Name = team.Name,
-                Employees = employeeStepCounts
+                EmployeesSteps = employeeStepCounts
             };
 
             return Ok(result);
