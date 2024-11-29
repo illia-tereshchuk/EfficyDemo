@@ -42,7 +42,7 @@ This will allow to keep consistency in naming.
 4. List all teams with steps summarized - DONE
 /Teams/all
 
-5. For single team, list all employees with steps - OK
+5. For single team, list all employees with steps - DONE
 /Teams/{id}/employees
 
 6. Add and delete teams
