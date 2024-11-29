@@ -42,7 +42,7 @@ namespace EfficyDemo.Api.Controllers
         }
 
         // 2. Increase counter
-        [HttpPatch("/increase/{id}")]
+        [HttpPatch("increase/{id}")]
         public async Task<IActionResult> IncrementCounter(int id, CounterIncreaseDto increaseCounterDto)
         {
             var counter = await _context.Counters.FindAsync(id);

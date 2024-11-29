@@ -30,16 +30,16 @@ And then, describe a REST API endpoints for them.
 For that endpoints I will also name future DTOs.
 This will allow to keep consistency in naming.
 
-1. Add counter - OK
+1. Add counter - DONE
 /Counters/add
 
-2. Increase counter - OK
+2. Increase counter - DONE
 /Counters/increase
 
-3. Get steps by team
+3. Get steps by team - DONE
 /Teams/steps
 
-4. List all teams with steps summarized
+4. List all teams with steps summarized - DONE
 /Teams/all
 
 5. For single team, list all employees with steps - OK
@@ -53,11 +53,11 @@ This will allow to keep consistency in naming.
 /Counters/delete
 
 DTOs:
-1. CountersAddDto
-2. CountersIncreaseDto
-3. TeamsStepsDto
-4. TeamsAllDto
-5. TeamsEmployeesDto
-6. TeamsAddDto, TeamsDeleteDto
-7. [Just ID]
+1. CounterAddDto - DONE
+2. CounterIncreaseDto - DONE
+3. [Int (Quantity)] - DONE
+4. TeamsAllDto - DONE
+5. TeamEmployeesDto
+6. TeamAddDto, [Int (Id)]
+7. [Int (Id)]
 

@@ -15,8 +15,8 @@ namespace EfficyDemo.Api.Controllers
         {
             _context = context;
         }
-        // Requirement #3 - get total steps for a single team
-        [HttpGet("{id}/steps")]
+        //3. Steps by team
+        [HttpGet("steps/{id}")]
         public async Task<ActionResult<int>> GetTotalSteps(int id)
         {
             var team = await _context.Teams
@@ -32,15 +32,15 @@ namespace EfficyDemo.Api.Controllers
                 .Sum(c => c.Value);
             return Ok(totalSteps);
         }
-        // Requirement #4 - list all teams and show their step counts
-        [HttpGet("/teams-with-steps")]
-        public async Task<ActionResult<IEnumerable<TeamStepsDto>>> GetTeamsWithStepCounts()
+        // 4. List all teams with steps summarized
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<TeamsAllDto>>> GetTeamsWithStepCounts()
         {
             var teams = await _context.Teams
                 .Include(t => t.Employees)
                 .ThenInclude(e => e.Counters)
                 .ToListAsync();
-            var teamStepCounts = teams.Select(t => new TeamStepsDto
+            var teamStepCounts = teams.Select(t => new TeamsAllDto
             {
                 Id = t.Id,
                 Name = t.Name,
@@ -50,7 +50,7 @@ namespace EfficyDemo.Api.Controllers
         }
         // Requirement #5 - list all employees and their step count for a certain team
         [HttpGet("{id}/employees-with-steps")]
-        public async Task<ActionResult<TeamWithEmployeeStepCountsDto>> GetTeamWithEmployeeStepCounts(int id)
+        public async Task<ActionResult<TeamEmployeesDto>> GetTeamWithEmployeeStepCounts(int id)
         {
             var team = await _context.Teams
                 .Include(t => t.Employees)
@@ -69,7 +69,7 @@ namespace EfficyDemo.Api.Controllers
                 TotalSteps = e.Counters.Sum(c => c.Value)
             }).ToList();
 
-            var result = new TeamWithEmployeeStepCountsDto
+            var result = new TeamEmployeesDto
             {
                 Id = team.Id,
                 Name = team.Name,
