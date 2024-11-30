@@ -35,3 +35,13 @@ This will allow to keep consistency in naming.
 6. Add and delete teams				/Teams/add					[String]
 									/Teams/delete/{id}			[Int]
 7. Delete counters					/Counters/delete/{id}		[Int]
+
+
+DB Name:	EfficyDemo.Db
+Server:		efficy-demo-db-server.database.windows.net
+Login:		efficy-demo-admin
+Password:	DifficultPassword123
+
+Server=tcp:efficy-demo-db-server.database.windows.net,1433;Initial Catalog=EfficyDemo.Db;Persist Security Info=False;User ID=efficy-demo-admin;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+
+Server=tcp:efficy-demo-db-server.database.windows.net,1433;Initial Catalog=EfficyDemo.Db;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication="Active Directory Default";
