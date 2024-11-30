@@ -8,7 +8,7 @@
         const teamId = selectTeams.value;
         const response = await fetch(`${apiRoot}/Teams/${teamId}/employees`);
         const employees = await response.json();
-        populateSelect(selectEmployees, employees["employeesSteps"], 'id', 'name');
+        populateSelect(selectEmployees, employees, 'id', 'name');
     }
     selectTeams.addEventListener('change', onTeamSelectChange);
 
