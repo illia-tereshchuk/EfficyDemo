@@ -11,19 +11,9 @@ namespace EfficyDemo.Api.Controllers
     public class EmployeesController : ControllerBase
     {
         private readonly EfficyDbContext _context;
-
         public EmployeesController(EfficyDbContext context)
         {
             _context = context;
-        }
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
-        {
-            return await _context.Employees
-                //.Include(e => e.Team)
-                //.Include(e => e.Counters)
-                .ToListAsync();
         }
         // BONUS: Switch employee's team
         [HttpPost("switchTeam")]

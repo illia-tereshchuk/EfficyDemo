@@ -72,18 +72,17 @@ namespace EfficyDemo.Api.Controllers
         }
         // 6. Add new team
         [HttpPost("addTeam")]
-        public async Task<IActionResult> AddTeam([FromQuery] string name)
+        public async Task<IActionResult> AddTeam([FromQuery] string teamName)
         {
             // Check if a team with the same name already exists
-            var existingTeam = await _context.Teams.FirstOrDefaultAsync(t => t.Name == name);
+            var existingTeam = await _context.Teams.FirstOrDefaultAsync(t => t.Name == teamName);
             if (existingTeam != null)
             {
                 return Conflict(new { message = "A team with the same name already exists." });
             }
-
             var team = new Team
             {
-                Name = name
+                Name = teamName
             };
             _context.Teams.Add(team);
             try

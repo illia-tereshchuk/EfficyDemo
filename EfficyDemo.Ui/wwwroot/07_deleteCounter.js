@@ -7,7 +7,7 @@
     // Load counters on employee select
     async function onEmployeeSelectChange() {
         const employeeId = selectEmployees.value;
-        const response = await fetch(`${apiRoot}/Counters/employee/${employeeId}`);
+        const response = await fetch(`${apiRoot}/Counters/getForEmployee?employeeId=${employeeId}`);
         const counters = await response.json();
         populateSelect(selectCounters, counters, 'id', 'value');
     }
@@ -16,7 +16,7 @@
     // Load employees on team select
     async function onTeamSelectChange() {
         const teamId = selectTeams.value;
-        const response = await fetch(`${apiRoot}/Teams/${teamId}/employees`);
+        const response = await fetch(`${apiRoot}/Teams/getEmployees?teamId=${teamId}`);
         const employees = await response.json();
         populateSelect(selectEmployees, employees, 'id', 'name');
     }

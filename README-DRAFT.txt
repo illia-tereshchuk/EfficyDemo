@@ -42,7 +42,7 @@ We also need additional methods to make this work:
 
 A. Switch employee's team 		/Employees/switchTeam		?employeeId=1&newTeamId=2	OK / ERROR
 B. Get all employees			/Employees/getAll										[{ id, name, teamId, teamName, totalSteps }]
-C. Get counters for employee	/Counters/getForEmployee	?employeeId=1			[{ id, value, employeeId }]
+C. Get counters for employee	/Counters/getForEmployee	?employeeId=1				[{ id, value, employeeId }]
 
 
 
