@@ -1,4 +1,4 @@
-﻿async function addTeamHandler() {
+﻿async function deleteTeamHandler() {
     const inputTeamName = document.getElementById('inputTeamName6');
     const buttonAddTeam = document.getElementById('buttonAddTeam6');
 
@@ -18,4 +18,4 @@
     }
     buttonAddTeam.addEventListener('click', onAddTeam);
 }
-document.addEventListener('DOMContentLoaded', addTeamHandler);
+document.addEventListener('DOMContentLoaded', deleteTeamHandler);
