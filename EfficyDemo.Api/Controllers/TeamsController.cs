@@ -15,17 +15,6 @@ namespace EfficyDemo.Api.Controllers
         {
             _context = context;
         }
-        // *. Get team without employees
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Team>> GetTeam(int id)
-        {
-            var team = await _context.Teams.FindAsync(id);
-            if (team == null)
-            {
-                return NotFound();
-            }
-            return Ok(team);
-        }
         //3. Steps by team
         [HttpGet("getSteps")]
         public async Task<ActionResult<int>> GetTotalSteps([FromQuery] int teamId)
@@ -83,7 +72,7 @@ namespace EfficyDemo.Api.Controllers
         }
         // 6. Add new team
         [HttpPost("addTeam")]
-        public async Task<ActionResult<Team>> AddTeam([FromQuery] string name)
+        public async Task<IActionResult> AddTeam([FromQuery] string name)
         {
             // Check if a team with the same name already exists
             var existingTeam = await _context.Teams.FirstOrDefaultAsync(t => t.Name == name);
@@ -91,14 +80,23 @@ namespace EfficyDemo.Api.Controllers
             {
                 return Conflict(new { message = "A team with the same name already exists." });
             }
+
             var team = new Team
             {
                 Name = name
             };
             _context.Teams.Add(team);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetTeam), new { id = team.Id }, team);
+            try
+            {
+                await _context.SaveChangesAsync();
+                return Ok(new { message = "Team added successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while adding the team", details = ex.Message });
+            }
         }
+
 
         // 6. Delete existing team by Id
         [HttpDelete("deleteTeam")]
