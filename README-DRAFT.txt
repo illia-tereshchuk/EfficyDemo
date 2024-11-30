@@ -30,17 +30,20 @@ This will allow to keep consistency in naming.
 1. Add counter						/Counters/add					CounterAddDto
 2. Increase counter					/Counters/increase/{id}			CounterIncreaseDto
 3. Get steps by team				/Teams/steps/{id}				[Int]
-4. List all teams with steps		/Teams/all						TeamsAllDto
+4. OK: List all teams with steps	/Teams/getAll					[{ id, name, totalSteps }]
 5. For team, employees with steps	/Teams/{id}/employees			TeamEmployeesDto 
 6. Add and delete teams				/Teams/add						[String]
 									/Teams/delete/{id}				[Int]
 7. Delete counter					/Counters/delete/{id}			[Int]
-BONUS: Change employee's team 		/Employee/{id}/team/{teamId}	[Int, Int]
+OK: BONUS: Switch employee's team 		/Employees/switchTeam			?employeeId=1&newTeamId=2
 
 
-We also need additional methods to make this work.
+We also need additional methods to make this work:
 
-8. Get counters for employee		/Counters/employee/{id}		CounterDto
+OK: Get all employees			/Employees/getAll			[{ id, name, teamId, teamName, totalSteps }]
+
+Get counters for employee	/Counters/employee/{id}			CounterDto
+
 
 
 DB Name:	EfficyDemo.Db
@@ -51,3 +54,6 @@ Password:	DifficultPassword123
 Server=tcp:efficy-demo-db-server.database.windows.net,1433;Initial Catalog=EfficyDemo.Db;Persist Security Info=False;User ID=efficy-demo-admin;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
 Server=tcp:efficy-demo-db-server.database.windows.net,1433;Initial Catalog=EfficyDemo.Db;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication="Active Directory Default";
+
+
+https://portal.azure.com/?l=en#@illiatereshchukoutlook.onmicrosoft.com/resource/subscriptions/c8362fb5-cd26-4c1b-848f-009617898afd/resourceGroups/Resource_group_1/providers/Microsoft.Sql/servers/efficy-demo-db-server/databases/EfficyDemo.Db/overview

@@ -1,5 +1,5 @@
 ﻿async function fetchTeamsWithSteps() {
-    const response = await fetch(apiRoot + '/Teams/all');
+    const response = await fetch(apiRoot + '/Teams/getAll');
     const teams = await response.json();
     const tableBody = document.getElementById('teamsTable').getElementsByTagName('tbody')[0];
     teams.forEach(team => { // { id, name, totalSteps }

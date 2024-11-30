@@ -30,8 +30,6 @@ namespace EfficyDemo.Api.Controllers
         public async Task<ActionResult<Employee>> GetEmployee(int id)
         {
             var employee = await _context.Employees
-                //.Include(e => e.Team)
-                //.Include(e => e.Counters)
                 .FirstOrDefaultAsync(e => e.Id == id);
 
             if (employee == null)
@@ -40,6 +38,47 @@ namespace EfficyDemo.Api.Controllers
             }
 
             return employee;
+        }
+        // BONUS: Switch employee's team
+        [HttpPost("switchTeam")]
+        public async Task<IActionResult> SwitchTeam([FromQuery] int employeeId, [FromQuery] int newTeamId)
+        {
+            var employee = await _context.Employees.FindAsync(employeeId);
+            if (employee == null)
+            {
+                return NotFound(new { message = "Employee not found." });
+            }
+
+            var team = await _context.Teams.FindAsync(newTeamId);
+            if (team == null)
+            {
+                return NotFound(new { message = "Team not found." });
+            }
+
+            employee.TeamId = newTeamId;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Employee team updated successfully." });
+        }
+        // Get all employees
+        [HttpGet("getAll")]
+        public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetAll()
+        {
+            var employees = await _context.Employees
+                .Include(e => e.Team)
+                .Include(e => e.Counters)
+                .ToListAsync();
+
+            var employeeDtos = employees.Select(e => new EmployeeDto
+            {
+                Id = e.Id,
+                Name = e.Name,
+                TeamId = e.TeamId,
+                TeamName = e.Team.Name,
+                TotalSteps = e.Counters.Sum(c => c.Value)
+            }).ToList();
+
+            return Ok(employeeDtos);
         }
     }
 }

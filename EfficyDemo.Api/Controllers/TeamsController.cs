@@ -44,14 +44,14 @@ namespace EfficyDemo.Api.Controllers
             return Ok(totalSteps);
         }
         // 4. List all teams with steps summarized
-        [HttpGet("all")]
-        public async Task<ActionResult<IEnumerable<TeamsAllDto>>> GetTeamsWithStepCounts()
+        [HttpGet("getAll")]
+        public async Task<ActionResult<IEnumerable<TeamDto>>> GetTeamsWithStepCounts()
         {
             var teams = await _context.Teams
                 .Include(t => t.Employees)
                 .ThenInclude(e => e.Counters)
                 .ToListAsync();
-            var teamStepCounts = teams.Select(t => new TeamsAllDto
+            var teamStepCounts = teams.Select(t => new TeamDto
             {
                 Id = t.Id,
                 Name = t.Name,

@@ -19,7 +19,7 @@
     selectTeams.addEventListener('change', onTeamSelectChange);
 
     // Load teams
-    const response = await fetch(`${apiRoot}/Teams/all`);
+    const response = await fetch(`${apiRoot}/Teams/getAll`);
     const teams = await response.json();
     populateSelect(selectTeams, teams, 'id', 'name');
 }
