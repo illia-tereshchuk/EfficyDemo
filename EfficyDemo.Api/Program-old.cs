@@ -1,7 +1,8 @@
+﻿/*
+using System.Text.Json.Serialization;
 using EfficyDemo.Api;
 using EfficyDemo.Dal;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,4 +52,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
+*/
