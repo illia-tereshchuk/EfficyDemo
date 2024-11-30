@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfficyDemo.Api", "EfficyDemo.Api\EfficyDemo.Api.csproj", "{C16C582F-7650-4497-98A8-D27C1BB7C18E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfficyDemo.WebUi", "EfficyDemo.WebUi\EfficyDemo.WebUi.csproj", "{91FB69AD-E89C-4227-A543-C138EC827DEF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,10 +34,6 @@ Global
 		{C16C582F-7650-4497-98A8-D27C1BB7C18E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C16C582F-7650-4497-98A8-D27C1BB7C18E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C16C582F-7650-4497-98A8-D27C1BB7C18E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91FB69AD-E89C-4227-A543-C138EC827DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91FB69AD-E89C-4227-A543-C138EC827DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91FB69AD-E89C-4227-A543-C138EC827DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91FB69AD-E89C-4227-A543-C138EC827DEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
