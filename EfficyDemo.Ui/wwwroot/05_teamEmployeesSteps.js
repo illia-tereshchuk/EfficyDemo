@@ -1,5 +1,4 @@
-﻿
-async function teamEmployeesStepsHandler() {
+﻿async function teamEmployeesStepsHandler() {
     const selectTeams = document.getElementById('selectTeams5');
     const tableBody = document.getElementById('tableEmployees5').getElementsByTagName('tbody')[0];
 

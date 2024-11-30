@@ -84,7 +84,7 @@
     <!-- 4 -->
     <div class="container">
         <h1>4. List all teams with steps</h1>
-        <table id="teamsTable" class="table" >
+        <table id="teamsTable" class="table">
             <thead>
                 <tr>
                     <th>Team</th>
@@ -113,6 +113,25 @@
         </table>
     </div>
     <!-- 5 -->
+    <!-- 6 -->
+    <div class="container">
+        <h1>6. Add and delete teams</h1>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">New team</td>
+                    <td><input id="inputTeamName6" class="field" /></td>
+                    <td><button id="buttonAddTeam6" class="field">Add new team</button></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; color: red;">Delete team</td>
+                    <td><select id="selectTeams6" class="field"></select></td>
+                    <td><button id="buttonDeleteTeam6" class="field" style="color: red;">Delete team</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 6 -->
     <!-- 7 -->
     <div class="container">
         <h1>7. Delete counter</h1>
@@ -130,7 +149,7 @@
                     <td><select id="selectTeams7" class="field"></select></td>
                     <td><select id="selectEmployees7" class="field"></select></td>
                     <td><select id="selectCounters7" class="field"></select></td>
-                    <td><button id="buttonDeleteCounter7" class="field">Delete counter</button></td>
+                    <td><button id="buttonDeleteCounter7" class="field" style="color: red;">Delete counter</button></td>
                 </tr>
             </tbody>
         </table>
@@ -143,6 +162,7 @@
     <script src="03_getStepsByTeam.js"></script>
     <script src="04_listAllTeamsWithSteps.js"></script>
     <script src="05_teamEmployeesSteps.js"></script>
+    <script src="06_addTeam.js"></script>
     <script src="07_deleteCounter.js"></script>
 </body>
 </html>
