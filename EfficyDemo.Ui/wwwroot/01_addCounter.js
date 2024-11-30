@@ -1,43 +1,29 @@
 ﻿async function addCounterHandler() {
-    // ++ Load teams
-    const response = await fetch(apiRoot + '/Teams/all');
-    const teams = await response.json();
     const selectTeams = document.getElementById('selectTeams1');
-    teams.forEach(team => { // { id, name, totalSteps }
-        const option = document.createElement('option');
-        option.value = team.id;
-        option.textContent = team.name;
-        selectTeams.appendChild(option);
-    });
-    // -- Load teams
-    // ++ Load employees on team select
-    async function onTeamSelectChange() {
-        const selectEmployees = document.getElementById('selectEmployees1');
-        selectEmployees.innerHTML = '';
-        const teamId = selectTeams.value;
-        const response = await fetch(apiRoot + '/Teams/' + teamId + '/employees');
-        const employees = await response.json();
+    const selectEmployees = document.getElementById('selectEmployees1');
+    const buttonAddCounter = document.getElementById('buttonAddCounter1');
 
-        employees["employeesSteps"].forEach(employee => { // { id, name, totalSteps }
-            const option = document.createElement('option');
-            option.value = employee.id;
-            option.textContent = employee.name;
-            selectEmployees.appendChild(option);
-        });
+    // Load employees on team select
+    async function onTeamSelectChange() {
+        const teamId = selectTeams.value;
+        const response = await fetch(`${apiRoot}/Teams/${teamId}/employees`);
+        const employees = await response.json();
+        populateSelect(selectEmployees, employees["employeesSteps"], 'id', 'name');
     }
     selectTeams.addEventListener('change', onTeamSelectChange);
-    // -- Load employees on team select
-    if (teams.length > 0) { // Fire the change event to load employees for the first team
-        selectTeams.dispatchEvent(new Event('change'));
-    }
-    // ++ Button click handler
-    const buttonAddCounter = document.getElementById('buttonAddCounter1');
+
+    // Load teams
+    const response = await fetch(`${apiRoot}/Teams/all`);
+    const teams = await response.json();
+    populateSelect(selectTeams, teams, 'id', 'name');
+
+    // Button click handler
     async function onAddCounter() {
         const data = {
             value: document.getElementById('inputCounterValue1').value,
-            employeeId: document.getElementById('selectEmployees1').value
+            employeeId: selectEmployees.value
         };
-        const response = await fetch(apiRoot + '/Counters/add', {
+        const response = await fetch(`${apiRoot}/Counters/add`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -50,6 +36,6 @@
         }
     }
     buttonAddCounter.addEventListener('click', onAddCounter);
-    // -- Button click handler
 }
 document.addEventListener('DOMContentLoaded', addCounterHandler);
+

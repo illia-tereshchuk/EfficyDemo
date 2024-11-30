@@ -33,7 +33,6 @@
         </table>
     </div>
     <!-- 1 -->
-
     <!-- 2 -->
     <div class="container">
         <h1>2. Increase counter</h1>
@@ -63,6 +62,7 @@
         </table>
     </div>
     <!-- 2 -->
+
     <!-- 4 -->
     <div class="container">
         <h1>4. List all teams with steps</h1>
@@ -80,8 +80,34 @@
     </div>
     <!-- 4 -->
 
-    <script src="00_configuration.js"></script>
+    <!-- 7 -->
+    <div class="container">
+        <h1>7. Delete counter</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Select team</th>
+                    <th>Select employee</th>
+                    <th>Select counter</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><select id="selectTeams7" class="field"></select></td>
+                    <td><select id="selectEmployees7" class="field"></select></td>
+                    <td><select id="selectCounters7" class="field"></select></td>
+                    <td><button id="buttonDeleteCounter7" class="field">Delete counter</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 7 -->
+
+    <script src="00_global.js"></script>
     <script src="01_addCounter.js"></script>
+    <script src="02_increaseCounter.js"></script>
     <script src="04_listAllTeamsWithSteps.js"></script>
+    <script src="07_deleteCounter.js"></script>
 </body>
 </html>

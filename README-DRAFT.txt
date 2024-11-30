@@ -22,7 +22,7 @@ Then I publish database locally and check it in SQL Explorer.
 Next, I design Data Access Layer, which utilizes Entity Framework.
 
 All the technical task revolves around REST API.
-For this, I will shorten user stories dead simple.
+For this, I will shorten user stories to meaning.
 And then, describe a REST API endpoints for them.
 For that endpoints I will also name future DTOs.
 This will allow to keep consistency in naming.
@@ -34,7 +34,7 @@ This will allow to keep consistency in naming.
 5. For team, employees with steps	/Teams/{id}/employees		TeamEmployeesDto 
 6. Add and delete teams				/Teams/add					[String]
 									/Teams/delete/{id}			[Int]
-7. Delete counters					/Counters/delete/{id}		[Int]
+7. Delete counter					/Counters/delete/{id}		[Int]
 
 We also need additional methods to make this work.
 
