@@ -8,9 +8,9 @@
     populateSelect(selectTeams, teams, 'id', 'name');
 
     async function onDeleteTeam() {
-        const response = await fetch(`${apiRoot}/Teams/delete/${selectTeams.value}`, {
+        const response = await fetch(`${apiRoot}/Teams/deleteTeam?teamId=${selectTeams.value}`, {
             method: 'DELETE',
-            headers: { 'accept': 'text/plain' }
+            headers: { 'accept': 'application/json' }
         });
         if (response.ok) {
             alert('Deleted successfully');

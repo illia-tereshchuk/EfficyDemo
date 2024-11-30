@@ -6,7 +6,7 @@
     // Load employees on team select
     async function onTeamSelectChange() {
         const teamId = selectTeams.value;
-        const response = await fetch(`${apiRoot}/Teams/${teamId}/employees`);
+        const response = await fetch(`${apiRoot}/Teams/getEmployees?teamId=${teamId}`);
         const employees = await response.json();
         populateSelect(selectEmployees, employees, 'id', 'name');
     }
@@ -19,17 +19,13 @@
 
     // Button click handler
     async function onAddCounter() {
-        const data = {
-            value: document.getElementById('inputCounterValue1').value,
-            employeeId: selectEmployees.value
-        };
-        const response = await fetch(`${apiRoot}/Counters/add`, {
+        const value = document.getElementById('inputCounterValue1').value;
+        const employeeId = selectEmployees.value;
+        const response = await fetch(`${apiRoot}/Counters/addCounter?employeeId=${employeeId}&value=${value}`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
-            const result = await response.json();
             alert('Counter added successfully');
         } else {
             alert('Failed to add counter');

@@ -5,7 +5,7 @@
     async function onAddTeam() {
         const teamName = inputTeamName.value;
         inputTeamName.value = '';
-        const response = await fetch(`${apiRoot}/Teams/add?name=${encodeURIComponent(teamName)}`, {
+        const response = await fetch(`${apiRoot}/Teams/addTeam?teamName=${encodeURIComponent(teamName)}`, {
             method: 'POST',
             headers: { 'accept': 'text/plain' }
         });

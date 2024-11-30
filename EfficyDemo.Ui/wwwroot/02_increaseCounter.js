@@ -30,18 +30,21 @@
 
     // Button click handler
     async function onIncreaseCounter() {
-        const data = { value: inputIncreaseBy.value };
-        const response = await fetch(`${apiRoot}/Counters/increase/${selectCounters.value}`, {
+        const counterId = selectCounters.value;
+        const value = inputIncreaseBy.value;
+        const response = await fetch(`${apiRoot}/Counters/increaseCounter?counterId=${counterId}&value=${value}`, {
             method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
             alert('Counter increased successfully');
         } else {
-            alert('Failed to increase counter');
+            const error = await response.json();
+            alert(`Failed to increase counter: ${error.message}`);
         }
     }
+
+
     buttonIncreaseCounter.addEventListener('click', onIncreaseCounter);
 }
 

@@ -25,20 +25,6 @@ namespace EfficyDemo.Api.Controllers
                 //.Include(e => e.Counters)
                 .ToListAsync();
         }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Employee>> GetEmployee(int id)
-        {
-            var employee = await _context.Employees
-                .FirstOrDefaultAsync(e => e.Id == id);
-
-            if (employee == null)
-            {
-                return NotFound();
-            }
-
-            return employee;
-        }
         // BONUS: Switch employee's team
         [HttpPost("switchTeam")]
         public async Task<IActionResult> SwitchTeam([FromQuery] int employeeId, [FromQuery] int newTeamId)
@@ -60,7 +46,7 @@ namespace EfficyDemo.Api.Controllers
 
             return Ok(new { message = "Employee team updated successfully." });
         }
-        // Get all employees
+        // X. Get all employees
         [HttpGet("getAll")]
         public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetAll()
         {

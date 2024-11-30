@@ -6,7 +6,7 @@
     async function onTeamSelectChange() {
         tableBody.innerHTML = '';
         const teamId = selectTeams.value;
-        const response = await fetch(`${apiRoot}/Teams/${teamId}/employees`);
+        const response = await fetch(`${apiRoot}/Teams/getEmployees?teamId=${teamId}`);
         const employees = await response.json(); 
         employees.forEach(employee => { // { name, totalSteps }
             const row = tableBody.insertRow();

@@ -29,7 +29,7 @@
 
     // Button click handler
     async function onDeleteCounter() {
-        const response = await fetch(`${apiRoot}/Counters/delete/${selectCounters.value}`, {
+        const response = await fetch(`${apiRoot}/Counters/deleteCounter?counterId=${selectCounters.value}`, {
             method: 'DELETE'
         });
         if (response.ok) {

@@ -4,7 +4,7 @@
     // Load steps on team select
     async function onTeamSelectChange() {
         const teamId = selectTeams.value;
-        const response = await fetch(`${apiRoot}/Teams/steps/${teamId}`);
+        const response = await fetch(`${apiRoot}/Teams/getSteps?teamId=${teamId}`);
         const steps = await response.text();
         inputTeamSteps.value = steps;
     }

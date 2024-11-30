@@ -15,55 +15,50 @@ namespace EfficyDemo.Api.Controllers
         {
             _context = context;
         }
-        [HttpGet("get/{id}")]
-        public async Task<ActionResult<Counter>> GetCounter(int id)
-        {
-            var counter = await _context.Counters
-                .FirstOrDefaultAsync(e => e.Id == id);
-            if (counter == null)
-            {
-                return NotFound();
-            }
-            return counter;
-        }
-        // 1. Add counter
-        [HttpPost("add")]
-        public async Task<ActionResult<Counter>> AddCounter(CounterAddDto counterDto) 
+        [HttpPost("addCounter")]
+        public async Task<IActionResult> AddCounter([FromQuery] int employeeId, [FromQuery] int value)
         {
             var counter = new Counter
             {
-                Value = counterDto.Value,
-                EmployeeId = counterDto.EmployeeId
+                Value = value,
+                EmployeeId = employeeId
             };
             _context.Counters.Add(counter);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetCounter), new { id = counter.Id }, counter);
+            try
+            {
+                await _context.SaveChangesAsync();
+                return Ok(new { message = "Counter added successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while adding the counter", details = ex.Message });
+            }
         }
         // 2. Increase counter
-        [HttpPatch("increase/{id}")]
-        public async Task<IActionResult> IncrementCounter(int id, CounterIncreaseDto increaseCounterDto)
+        [HttpPatch("increaseCounter")]
+        public async Task<IActionResult> IncreaseCounter([FromQuery] int counterId, [FromQuery] int value)
         {
-            var counter = await _context.Counters.FindAsync(id);
+            var counter = await _context.Counters.FindAsync(counterId);
             if (counter == null)
             {
                 return NotFound();
             }
-            counter.Value += increaseCounterDto.Value;
+            counter.Value += value;
             try
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException) when (!_context.Counters.Any(e => e.Id == id))
+            catch (DbUpdateConcurrencyException) when (!_context.Counters.Any(e => e.Id == counterId))
             {
                 return NotFound();
             }
             return NoContent();
         }
         // 7. Delete counter
-        [HttpDelete("delete/{id}")]
-        public async Task<IActionResult> DeleteCounter(int id)
+        [HttpDelete("deleteCounter")]
+        public async Task<IActionResult> DeleteCounter([FromQuery] int counterId)
         {
-            var counter = await _context.Counters.FindAsync(id);
+            var counter = await _context.Counters.FindAsync(counterId);
             if (counter == null)
             {
                 return NotFound();
@@ -73,11 +68,11 @@ namespace EfficyDemo.Api.Controllers
             return NoContent();
         }
         // 8. Get counters for employee
-        [HttpGet("employee/{id}")]
-        public async Task<ActionResult<IEnumerable<CounterDto>>> GetCountersForEmployee(int id)
+        [HttpGet("getForEmployee")]
+        public async Task<ActionResult<IEnumerable<CounterDto>>> GetCountersForEmployee([FromQuery] int employeeId)
         {
             var counters = await _context.Counters
-                .Where(c => c.EmployeeId == id)
+                .Where(c => c.EmployeeId == employeeId)
                 .Select(c => new CounterDto
                 {
                     Id = c.Id,
