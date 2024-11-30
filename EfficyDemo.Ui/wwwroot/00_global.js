@@ -1,4 +1,4 @@
-﻿const apiRoot = "http://localhost:37743/api";
+﻿const apiRoot = "https://efficydemoapiappservice.azurewebsites.net/api";
 function populateSelect(selectElement, items, valueKey, textKey, dataKey) {
     selectElement.innerHTML = '';
     items.forEach(item => {
