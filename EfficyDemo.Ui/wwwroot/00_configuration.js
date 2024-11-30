@@ -1,0 +1,1 @@
+﻿const apiRoot = "http://localhost:37743/api";

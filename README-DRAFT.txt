@@ -36,6 +36,10 @@ This will allow to keep consistency in naming.
 									/Teams/delete/{id}			[Int]
 7. Delete counters					/Counters/delete/{id}		[Int]
 
+We also need additional methods to make this work.
+
+8. Get counters for employee		/Counters/employee/{id}		CounterDto
+
 
 DB Name:	EfficyDemo.Db
 Server:		efficy-demo-db-server.database.windows.net

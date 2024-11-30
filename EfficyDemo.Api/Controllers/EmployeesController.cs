@@ -2,6 +2,7 @@
 using EfficyDemo.Dal;
 using EfficyDemo.Dal.Models;
 using Microsoft.EntityFrameworkCore;
+using EfficyDemo.Api.DTOs;
 
 namespace EfficyDemo.Api.Controllers
 {

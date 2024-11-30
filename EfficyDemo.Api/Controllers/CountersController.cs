@@ -72,5 +72,24 @@ namespace EfficyDemo.Api.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+        // 8. Get counters for employee
+        [HttpGet("employee/{id}")]
+        public async Task<ActionResult<IEnumerable<CounterDto>>> GetCountersForEmployee(int id)
+        {
+            var counters = await _context.Counters
+                .Where(c => c.EmployeeId == id)
+                .Select(c => new CounterDto
+                {
+                    Id = c.Id,
+                    Value = c.Value,
+                    EmployeeId = c.EmployeeId
+                })
+                .ToListAsync();
+            if (counters == null || !counters.Any())
+            {
+                return NotFound();
+            }
+            return counters;
+        }
     }
 }

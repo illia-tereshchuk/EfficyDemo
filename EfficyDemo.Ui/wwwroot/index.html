@@ -7,21 +7,81 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- 1 -->
     <div class="container">
-        <h1>Employees</h1>
-        <table class="table" id="employeesTable">
+        <h1>1. Add counter</h1>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Team</th>
-                    <th>Counters</th>
+                    <th>Select team</th>
+                    <th>Select employee</th>
+                    <th>Enter counter value</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Employee rows will be inserted here by JavaScript -->
+                <tr>
+                    <td><select id="selectTeams1" class="field"></select></td>
+                    <td><select id="selectEmployees1" class="field"></select></td>
+                    <td><input id="inputCounterValue1" type="number" value="1" class="field" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><button id="buttonAddCounter1" class="field">Add counter</button></td>
+                </tr>
             </tbody>
         </table>
     </div>
-    <script src="scripts.js"></script>
+    <!-- 1 -->
+
+    <!-- 2 -->
+    <div class="container">
+        <h1>2. Increase counter</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Select team</th>
+                    <th>Select employee</th>
+                    <th>Select counter</th>
+                    <th>Increase by</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><select id="selectTeams2" class="field"></select></td>
+                    <td><select id="selectEmployees2" class="field"></select></td>
+                    <td><select id="selectCounters2" class="field"></select></td>
+                    <td><input id="inputIncreaseBy2" type="number" value="1" class="field" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button id="buttonIncreaseCounter2" class="field">Increase counter</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 2 -->
+    <!-- 4 -->
+    <div class="container">
+        <h1>4. List all teams with steps</h1>
+        <table class="table" id="teamsTable">
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Total steps</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Inserted by JS -->
+            </tbody>
+        </table>
+    </div>
+    <!-- 4 -->
+
+    <script src="00_configuration.js"></script>
+    <script src="01_addCounter.js"></script>
+    <script src="04_listAllTeamsWithSteps.js"></script>
 </body>
 </html>
